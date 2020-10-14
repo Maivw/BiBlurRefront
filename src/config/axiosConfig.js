@@ -3,7 +3,7 @@ import { store } from "../index";
 import { baseUrl } from "../config";
 
 const api = create({
-	//baseURL: "https://biblur-back.herokuapp.com",
+	// baseURL: "https://biblurback.herokuapp.com/",
 	baseURL: baseUrl,
 	headers: {
 		Accept: "application/json",
