@@ -1,0 +1,54 @@
+.allPost,
+.createPost__options {
+	display: flex;
+	justify-content: center;
+}
+
+.cardPost {
+	border: 1px solid #112a45;
+	margin-bottom: 20px;
+	border-radius: 10px;
+}
+.createPost__options > span {
+	padding: 30px;
+	color: white;
+	font-size: 20px;
+}
+
+.headerCardInfo {
+	text-align: left;
+	margin-left: 15px;
+	font-size: 8px;
+	line-height: 0.5;
+	color: #8c8c8c;
+}
+.headerCardAvatar {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.inputRender {
+	max-height: 540px;
+	object-fit: contain;
+	width: 80%;
+	padding: 15px;
+}
+
+.deletePostIcon {
+	display: flex;
+	justify-content: flex-end;
+	color: #8c8c8c;
+}
+.postContent {
+	font-size: 16px;
+	margin-left: 10px;
+	padding: 10;
+	color: #434343;
+	margin-top: 10px;
+}
+
+.createPostInputIcon {
+	color: #112a45;
+}

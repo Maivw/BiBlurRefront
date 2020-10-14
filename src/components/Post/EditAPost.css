@@ -1,0 +1,28 @@
+.inputEditChange {
+	height: 30px;
+	font-size: 12;
+	color: #112a45;
+	width: 100%;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	border: 1px solid #f0f0f0;
+}
+
+.inputRender {
+	max-height: 540px;
+	object-fit: cover;
+	width: 80%;
+	padding: 15px;
+}
+
+.headerCardInfo {
+	text-align: left;
+	margin-left: 15px;
+	font-size: 8px;
+	line-height: 0.5;
+	color: #8c8c8c;
+}
+.EditPost {
+	display: flex;
+	justify-content: center;
+}
