@@ -119,7 +119,11 @@ export default function AllComments(props) {
 																/>
 																<p
 																	onClick={closeShowmore}
-																	style={{ marginLeft: 15, color: "#8c8c8c" }}
+																	style={{
+																		marginLeft: 15,
+																		color: "#8c8c8c",
+																	}}
+																	className="popover__text"
 																>
 																	Close
 																</p>

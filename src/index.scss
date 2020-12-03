@@ -322,7 +322,7 @@ body {
       width: 200%;
       top: 0%;
       left: 0%;
-      background-color: rgba(189, 188, 188, 0.288);
+      background-color:#eeeeee;
       z-index: -1;
       transform: translate(-25%, -25%);
       border-radius: $borderRadius;
@@ -504,4 +504,8 @@ button.ghost {
   transform: translateY( 40%);
   padding: 1rem 3rem 1rem 1rem;
   
+}
+
+.popover__text {
+  cursor: pointer !important;
 }
