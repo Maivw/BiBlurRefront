@@ -14,7 +14,6 @@ const api = create({
 
 api.interceptors.request.use((config) => {
 	const state = store.getState();
-	console.log("state", state);
 	const token = state.authentication.token;
 	return {
 		...config,

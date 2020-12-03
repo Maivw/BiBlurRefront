@@ -22,9 +22,9 @@ export default function AllComments(props) {
 	const user_Id = useSelector((state) => state.authentication.user.id);
 	const comments = useSelector((state) => state.commentManagement.comments);
 	const posts = useSelector((state) => state.postManagement.Posts);
-	const { postId, isOpened } = props;
+	const { postId, isOpened, postUserId, userLoginId } = props;
 	const [visibleShowmore, setVisibleShowmore] = useState(false);
-
+	const userLogin = useSelector((state) => state.authentication.userLoggedIn);
 	useEffect(() => {
 		if (postId === isOpened) {
 			onShowComments();
@@ -35,7 +35,6 @@ export default function AllComments(props) {
 		dispatch(GetComments({ postId }));
 	};
 	const onShowMore = (commentId) => () => {
-		console.log("t", commentId);
 		setVisibleShowmore(commentId);
 	};
 	const closeShowmore = (e) => {
@@ -101,6 +100,7 @@ export default function AllComments(props) {
 																postId={postId}
 																commentId={comment.id}
 																OnSendClose={closeShowmore}
+																userId={comment.userId}
 															/>
 															<div
 																style={{
@@ -113,6 +113,9 @@ export default function AllComments(props) {
 																<DeleteSingleComment
 																	postId={postId}
 																	commentId={comment.id}
+																	postUserId={postUserId}
+																	userLoginId={userLoginId}
+																	userId={comment.userId}
 																/>
 																<p
 																	onClick={closeShowmore}

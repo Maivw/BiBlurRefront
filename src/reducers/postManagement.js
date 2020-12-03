@@ -126,9 +126,7 @@ export default function reducer(state = initialState, action) {
 		}
 
 		case LIKE_A_COMMENT: {
-			console.log("wwwww", action.likecomment);
 			let newState = [...state.posts];
-			console.log("newState", newState);
 
 			//find currentPost index
 			let currentPostIndex = newState.findIndex(

@@ -318,6 +318,28 @@ body {
   border-radius: 1.5rem;
 }
 
+.comment__input-icon-warning {
+  color: #112a45 !important;
+  position: relative;
+  left: 10%;
+  top: 50%;
+  transform: translate(0%, -10%);
+  z-index: 1;
+}
+
+.comment__input-icon-warning:after {
+  content: "";
+  position: absolute;
+  height: 200%;
+  width: 200%;
+  top: 0%;
+  left: 0%;
+  background-color: rgba(189, 188, 188, 0.288);
+  z-index: -1;
+  transform: translate(-25%, -25%);
+  border-radius: 1.5rem;
+}
+
 .forms {
   display: flex;
   justify-content: center;
@@ -493,8 +515,18 @@ button.ghost {
   transform: translateX(50%);
 }
 
+.ant-popover-content {
+  position: relative !important;
+}
+
 .ant-popover-inner {
   width: 50rem;
   height: 15rem;
+  border-radius: 2rem !important;
+  position: absolute !important;
+  right: 50% !important;
+  top: 40% !important;
+  transform: translateY(40%);
+  padding: 1rem 3rem 1rem 1rem;
 }
 /*# sourceMappingURL=index.css.map */
