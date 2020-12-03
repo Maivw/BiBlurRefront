@@ -3,12 +3,9 @@
 	background: rgba(255, 255, 255, 0.2);
 	margin: 16px;
 }
-/*
-.site-layout .site-layout-background {
-	background: #fff;
-} */
+
 .site-layout {
-	background-color: #112a45;
+	background-color: yellow;
 }
 
 .ant-popover-content {

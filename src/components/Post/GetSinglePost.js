@@ -17,7 +17,7 @@ function GetSinglePost() {
 	return (
 		<div>
 			{post && (
-				<Card hoverable>
+				<Card hoverable style={{ borderRadius: "2rem" }}>
 					<Row>
 						<Col span={6}>
 							<img

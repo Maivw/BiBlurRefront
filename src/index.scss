@@ -1,0 +1,477 @@
+#root {
+	height: 100vh;
+}
+
+html {
+  font-size: 62.5%;
+  background-image: adial-gradient(circle at center center, rgb(141, 230, 233),rgb(12, 130, 136))!important;
+  
+}
+
+$color-white: #fff;
+$color-text: #112a45;
+$color-border: #0e414918;
+$color-text-2:#2d8079b2;
+$color-like: #025f57ec;
+$color-hover: #cbf0f79c;
+$color-icon-bg: #b7f2f89d;
+$padding-header: 2rem 3rem;
+$padding-icon: 0.5rem 2rem 0.5rem 1rem;
+$borderRadius: 1.5rem;
+$boxShadow: 0 0 10px  0 #9ad6dd63;
+$fontWeight: 300;
+@mixin smallUserImage($width, $height, $borderRadius, $objectfit) {
+	width: $width;
+	height: $height;
+	border-radius: $borderRadius;
+	object-fit: $objectfit;
+}
+@mixin flex($display, $justify-content) {
+	display: $display;
+	justify-content: $justify-content;
+}
+@mixin size($width, $height) {
+	width: $width;
+	height: $height;
+}
+body {
+	width: 100vw;
+	height: 100vh;
+	font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.ant-popover-inner {
+	width: 900px;
+	height: 700px;
+}
+.ant-menu.ant-menu-dark, .ant-layout-sider-children, .ant-layout-sider-trigger, .ant-menu-dark .ant-menu-inline.ant-menu-sub{
+  background-image: radial-gradient(circle at center center, rgb(141, 230, 233),rgb(12, 130, 136))!important;
+  
+}
+* {
+	font-size: 14px;
+}
+
+// Get all post
+.app__container {
+	border-radius: 3rem;
+	margin: 2rem auto;
+  width: 70%;
+  z-index: 2;
+
+	& .app__createPost {
+    box-shadow: $boxShadow;
+    border: 1px solid $color-border;
+    border-radius: 3rem;
+    background-color: white;
+    margin-bottom: 3rem;
+		&-heading {
+			padding: $padding-header;
+			width: 40%;
+			text-align: left;
+			font-size: 2rem;
+		}
+		&-options {
+			padding: $padding-header;
+			display: flex;
+			justify-content: space-between;
+		}
+		&-user {
+			@include flex(flex, space-evenly);
+			&-text {
+        margin-left: 2rem;
+        font-weight: $fontWeight;
+			}
+		}
+		&-icons {
+			@include flex(flex, space-evenly);
+			width: 60%;
+			padding: $padding-header;
+			font-size: 3.2rem;
+		}
+		&-wrapper {
+			padding: $padding-icon;
+			margin-right: 1rem;
+      cursor: pointer;
+      font-weight:$fontWeight;
+			&-icon {
+				margin-right: 1rem;
+				position: relative;
+				z-index: 1;
+				&:after {
+					content: "";
+					position: absolute;
+					height: 200%;
+					width: 200%;
+					top: 0%;
+					left: 0%;
+					background-color: $color-icon-bg;
+					z-index: -1;
+					transform: translate(-25%, -25%);
+					border-radius: $borderRadius;
+        }
+        
+			}
+		}
+
+		&-image {
+			@include smallUserImage(5rem, 5rem, 50%, cover);
+			object-position: center;
+		}
+		color: $color-text;
+		border-radius: 1.5rem;
+		display: flex;
+		justify-content: space-between;
+		text-align: center;
+    flex-direction: column;
+    font-weight: $fontWeight;
+	}
+}
+.ant-layout{
+  background-image: radial-gradient(circle at center center, rgba(103, 230, 230, 0.664),rgb(13, 148, 153)) !important;
+}
+.ant-card  {
+  border-radius: 2rem !important;
+  margin: 2rem !important;
+}
+.ant-card-bordered {
+  width: 100rem;
+  
+  box-shadow: $boxShadow;
+}
+.ant-card-body {
+  border-radius: $borderRadius;
+  box-shadow: $boxShadow;
+}
+
+.card {
+  &__top {
+    @include flex (flex, space-between);
+    margin-bottom: 2rem;
+    
+  }
+	&__header {
+    color: $color-text;
+    position: relative;
+    @include flex(flex, space-evenly);
+    width: 40%;
+    &-delete {
+      text-align: right;
+      color: red;
+    }
+    &-user {
+      @include flex (flex, space-between);
+      padding: $padding-header;
+    }
+		&-image {
+      @include smallUserImage(5rem, 5rem, 50%, cover);
+      margin-right: 1rem;
+    } 
+    &-info {
+      text-align: left;
+      & p, span {
+        font-size: 1rem;
+      }
+    }
+    &-name {
+      text-decoration: none;
+      color: $color-text;
+      font-size: 2rem;
+    }
+  }
+  &__body {
+    margin: 0 auto;
+    padding: 2rem 0;
+    font-weight: $fontWeight !important;
+    display: flex !important;
+    flex-direction: column!important;
+    box-shadow: $boxShadow;
+    border-radius: $borderRadius;
+    &-content {
+      text-align: left;
+      padding: 0 0 2rem 3rem;
+      color: $color-text;
+    }
+    &-imageVideo {
+      @include size(35rem, 50rem);
+      border-radius: $borderRadius;
+      box-shadow: $boxShadow;
+      margin: 3rem;
+      object-position: center!important;
+    }
+  }
+  
+}
+.card__icon-delete {
+  color: $color-text;
+  margin: 2rem 5rem 0 0;
+  width: 11rem;
+  
+}
+.card__footer {
+  border:1px solid $color-border;
+  box-shadow: $boxShadow;
+  @include flex(flex, space-around);
+  border-radius: $borderRadius;
+  width: 90%;
+  margin: 1rem auto !important;
+  padding: 1rem 1rem 1rem 4rem;
+}
+// Comments
+.comments {
+  border-bottom: 1px solid $color-border;
+  width: 85%;
+  margin: 0.5rem auto 0.5rem;
+
+};
+.comment {
+  &__top {
+    @include flex (flex, space-between);
+    position: relative;
+  }
+  &__content {
+  width: 50rem;
+   display: flex;
+   justify-content: space-between;
+   margin: 0 auto;
+   position:absolute;
+   top: 50%;
+   left: 100%;
+   transform: translate(2%, -50%);
+  }
+  &__avatar-image {
+    @include smallUserImage(5rem, 5rem, 50%, cover);
+    object-position: center;
+    margin: 1rem 0 0.5rem 2rem;
+  }
+  
+}
+
+.comment__input-icon {
+  position: relative;
+  left: 45%;
+  top: 0%;
+  transform: translate(-200%, -300%);
+  z-index: 1;
+    &:after {
+      content: "";
+      position: absolute;
+      height: 200%;
+      width: 200%;
+      top: 0%;
+      left: 0%;
+      background-color: $color-icon-bg;
+      z-index: -1;
+      transform: translate(-25%, -25%);
+      border-radius: $borderRadius;
+    }
+
+}
+
+.comment__input-icon-second {
+  position: relative;
+  left: 95%;
+  top: 50%;
+  transform: translate(0%, -300%);
+  z-index: 1;
+    &:after {
+      content: "";
+      position: absolute;
+      height: 200%;
+      width: 200%;
+      top: 0%;
+      left: 0%;
+      background-color: $color-icon-bg;
+      z-index: -1;
+      transform: translate(-25%, -25%);
+      border-radius: $borderRadius;
+    }
+}
+.comment__input-icon-delete {
+  color: $color-text!important;
+  position: relative;
+  left: 95%;
+  top: 50%;
+  transform: translate(0%, -100%);
+  z-index: 1;
+    &:after {
+      content: "";
+      position: absolute;
+      height: 200%;
+      width: 200%;
+      top: 0%;
+      left: 0%;
+      background-color: $color-icon-bg;
+      z-index: -1;
+      transform: translate(-25%, -25%);
+      border-radius: $borderRadius;
+    }
+}
+
+//Login
+.forms {
+	@include flex(flex, center);
+	align-items: center;
+	flex-direction: column;
+	height: 100vh;
+}
+p {
+	font-size: 1.4rem;
+	font-weight: $fontWeight;
+	line-height: 2rem;
+	letter-spacing: 0.5px;
+	margin: 2rem 0 3rem;
+}
+
+span {
+	font-size: 12px;
+}
+h1 {
+  font-size: 4rem;
+  color:white !important;
+}
+.text {
+	font-size: 40px;
+	color: white;
+}
+
+.container {
+	color: white;
+	border-radius: 2rem;
+	box-shadow: $boxShadow;
+	position: relative;
+	overflow: hidden;
+	width: 60%;
+	max-width: 100%;
+	min-height: 60%;
+}
+.container span {
+	color: white;
+}
+
+.form-container form {
+	background-color:  rgb(26, 179, 179);
+	display: flex;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+}
+.form-container input {
+	background-color: white;;
+	border: 1px solid $color-border;
+	padding: 10px 15px;
+	margin: 8px 0;
+	width: 100%;
+  border-radius: $borderRadius;
+  box-shadow: $boxShadow;
+}
+.form-container {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	transition: all 0.6s ease-in-out;
+}
+.sign-in-container {
+	left: 0;
+	width: 50%;
+	z-index: 2;
+}
+
+.sign-up-container {
+	left: 0;
+	width: 50%;
+	opacity: 0;
+	z-index: 1;
+}
+button {
+	margin-top: 4rem;
+	border-radius: 20px;
+	border: 1px solid white;
+  background-color: $color-text-2;
+  color:white !important;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 8px 25px;
+	letter-spacing: 1px;
+	width: 12rem;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+button:active {
+	transform: scale(0.95);
+}
+button:focus {
+	outline: none;
+}
+button.ghost {
+	margin-top: 40px;
+	background-color: transparent;
+	border-color: white;
+}
+
+.overlay-container {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+	transition: transform 0.6s ease-in-out;
+	z-index: 100;
+}
+
+.overlay {
+	background-image: url("https://images.unsplash.com/photo-1575925241243-c92143b66005?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1510&q=80");
+	color: white;
+	position: relative;
+	left: -100%;
+	height: 100%;
+	width: 200%;
+	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+.overlay-panel {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 40px;
+	text-align: center;
+	top: 0;
+	height: 100%;
+	width: 50%;
+	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+
+.overlay-right {
+	right: 0;
+	transform: translateX(0);
+}
+
+.container.right-panel-active .sign-in-container {
+	transform: translateX(100%);
+}
+
+.container.right-panel-active .overlay-container {
+	transform: translateX(-100%);
+}
+
+.container.right-panel-active .sign-up-container {
+	transform: translateX(100%);
+	opacity: 1;
+	z-index: 5;
+}
+.container.container.right-panel-active .overlay {
+	transform: translateX(50%);
+}
+//popover
+.ant-popover-inner {
+  // background-color: red !important;
+  width: 50rem;height: 15rem;
+}

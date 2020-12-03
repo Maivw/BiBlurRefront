@@ -7,14 +7,18 @@ import {
 	getUserProfile,
 	EditLoggedInUser,
 } from "../../reducers/authentication";
-import "./Home.css";
-import { Layout, Menu, Card, Modal, Popover } from "antd";
+import { Layout, Menu, Card, Modal, Popover, Row, Col } from "antd";
 import {
-	DesktopOutlined,
+	MenuUnfoldOutlined,
+	MenuFoldOutlined,
 	UserOutlined,
+	VideoCameraOutlined,
+	UploadOutlined,
+	DesktopOutlined,
 	LoginOutlined,
 	PictureOutlined,
 } from "@ant-design/icons";
+
 const { Meta } = Card;
 const imageUrlDefault =
 	"http://sarangglobaltours.com/wp-content/uploads/2014/02/team.png";

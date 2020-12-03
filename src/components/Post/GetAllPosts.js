@@ -17,9 +17,9 @@ import {
 	YoutubeOutlined,
 	ShareAltOutlined,
 	HeartFilled,
+	CalendarOutlined,
 } from "@ant-design/icons";
 import "../../index.css";
-import "./GetAllPosts.css";
 
 import CreatePostImageFile from "./CreatePostImageFile";
 import CreatePostImageUrl from "./CreatePostImageUrl";
@@ -40,6 +40,7 @@ function GetAllPosts(props) {
 	const [visibleVideoUrl, setVisibleVideoUrl] = useState(false);
 	const [activePostId, setActivePostId] = useState();
 	const [visibleEditPost, setVisibleEditPost] = useState(false);
+	const userLogin = useSelector((state) => state.authentication.userLoggedIn);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getAllPosts());
@@ -87,7 +88,7 @@ function GetAllPosts(props) {
 		return <Redirect to="/login" />;
 	}
 	return (
-		<div className="app-container">
+		<div className="app__container">
 			<CreatePostImageFile visible={visible} onCancel={onCancel} />
 			<CreatePostImageUrl
 				visible={visibleImageUrl}
@@ -104,137 +105,170 @@ function GetAllPosts(props) {
 					id={activePostId}
 				/>
 			)}
-			<Row className="createPost__options">
-				<span>Create a Post</span>
-				<Col className="text-white" style={{ marginLeft: 30 }}>
-					<PictureOutlined
-						onClick={onShowModal}
-						style={{ color: "white", padding: 30 }}
-					/>
-				</Col>
-				<Col className="text-white" style={{ marginLeft: 30 }}>
-					<EditOutlined
-						onClick={onShowModalImageUrl}
-						style={{ color: "white", padding: 30 }}
-					/>
-				</Col>
-				<Col className="text-white" style={{ marginLeft: 30 }}>
-					<YoutubeOutlined
-						onClick={onShowModalVideoUrl}
-						style={{ color: "white", padding: 30 }}
-					/>
+			<Row className="app__createPost">
+				<Col className="app__createPost-heading">Create Post</Col>
+				<Col className="app__createPost-options">
+					<div className="app__createPost-user">
+						{userLogin.imageUrl ? (
+							<img
+								src={userLogin.imageUrl}
+								alt=""
+								className="app__createPost-image"
+							/>
+						) : (
+							<img
+								src={imageUrlDefault}
+								alt=""
+								className="app__createPost-image"
+							/>
+						)}
+
+						<p className="app__createPost-user-text">
+							What's on your mind {userLogin.username}?
+						</p>
+					</div>
+					<div className="app__createPost-icons">
+						<div className="app__createPost-wrapper" onClick={onShowModal}>
+							<PictureOutlined className="app__createPost-wrapper-icon" />
+							<span>Photo url</span>
+						</div>
+						<div
+							className="app__createPost-wrapper"
+							onClick={onShowModalImageUrl}
+						>
+							<EditOutlined className="app__createPost-wrapper-icon" />
+							<span>Text</span>
+						</div>
+						<div
+							className="app__createPost-wrapper"
+							onClick={onShowModalVideoUrl}
+						>
+							<YoutubeOutlined className="app__createPost-wrapper-icon" />
+							<span>Video url</span>
+						</div>
+					</div>
 				</Col>
 			</Row>
-			<Row className="allPost">
+			<Row className="app__posts" style={{ borderRadius: "2rem" }}>
 				{posts &&
 					posts.map((post, index) => {
 						const likes = post.Likes;
 						const love = post.Likes.filter((l) => l.userId === user_Id)[0];
 						console.log("love", love);
-
 						const l = post.Likes.filter((like) => !like.commentId).length;
-
 						return (
-							<Col key={index} xs={4} sm={6} md={8} lg={10} xl={14}>
-								<Card className="cardPost" key={index}>
-									<Row key={index}>
-										<Col
-											span={12}
-											style={{ display: "flex", justifyContent: "flex-start" }}
-										>
+							<Card className="card" key={index}>
+								<Row className="card__top">
+									<Col className="card__header">
+										<Col className="card__header-user">
 											{post && post.User && post.User.imageUrl ? (
 												<img
 													src={post.User.imageUrl}
-													className="headerCardAvatar"
+													className="card__header-image"
 												/>
 											) : (
 												<img
 													src="https://www.pngkey.com/png/detail/52-522921_kathrine-vangen-profile-pic-empty-png.png"
-													className="headerCardAvatar"
+													className="card__header-image"
 												/>
 											)}
-											<div className="headerCardInfo">
-												<Link to={`/users/${post.userId}`}>
-													<p style={{ fontSize: 16 }}>
-														{editedUser && post.userId === editedUser.id ? (
-															<strong>{editedUser.username}</strong>
-														) : (
-															<strong>{post.User.username}</strong>
-														)}
-													</p>
-												</Link>
+											<Link
+												to={`/users/${post.userId}`}
+												className="card__header-name"
+											>
 												<p>
-													{moment(post.createdAt).format(
-														"DD/MM/YYYY h:mm:ss a"
+													{editedUser && post.userId === editedUser.id ? (
+														<strong>{editedUser.username}</strong>
+													) : (
+														<strong>{post.User.username}</strong>
 													)}
-													<span style={{ marginLeft: 10 }}>
-														At: {post.location}
-													</span>
 												</p>
-											</div>
+											</Link>
 										</Col>
-
-										<Col span={12} className="deletePostIcon">
+										<Col className="card__header-info">
+											<p>
+												<CalendarOutlined style={{ marginRight: "1rem" }} />
+												{moment(post.createdAt).format("DD/MM/YYYY h:mm:ss a")}
+											</p>
+											<p>
+												{post.location === "" ? (
+													<p></p>
+												) : (
+													<span>
+														<i
+															className="fa fa-map-marker"
+															style={{ marginRight: "1rem" }}
+														></i>
+														{post.location}
+													</span>
+												)}
+											</p>
+										</Col>
+									</Col>
+									{post.userId === userLogin.id ? (
+										<Col className="card__icon-delete">
 											<DeleteAPost id={post.id} />
 										</Col>
-									</Row>
-									<Row>
-										<div className="postContent">{post.postContent}</div>
-										<div>
-											{post.imagePostUrl && (
-												<img
-													src={post.imagePostUrl}
-													className="inputRender"
-												></img>
+									) : null}
+								</Row>
+								<Row className="card__body">
+									<Col className="card__body-content">{post.postContent}</Col>
+									<Col>
+										{post.imagePostUrl && (
+											<img
+												src={post.imagePostUrl}
+												className="card__body-imageVideo"
+											></img>
+										)}
+
+										{post.videoPostUrl && (
+											<video className="card__body-imageVideo" controls>
+												<source src={post.videoPostUrl} type="video/mp4" />
+											</video>
+										)}
+									</Col>
+								</Row>
+								<Divider />
+								<Row className="card__footer">
+									<Col className="app__createPost-wrapper">
+										<HeartFilled
+											onClick={onLikePost(post)}
+											style={{ color: love ? "red" : "#025f57ec" }}
+											className="app__createPost-wrapper-icon"
+										/>
+										<span>
+											{post.Likes.filter((like) => !like.commentId).length}
+											{l <= 1 ? (
+												<span style={{ marginLeft: 2 }}>like</span>
+											) : (
+												<span style={{ marginLeft: 2 }}>likes</span>
 											)}
-										</div>
-										<div>
-											{post.videoPostUrl && (
-												<video className="inputRender" controls>
-													<source src={post.videoPostUrl} type="video/mp4" />
-												</video>
-											)}
-										</div>
-									</Row>
-									<Divider style={{ marginTop: 20, marginBottom: 10 }} />
-									<Row>
-										<Col xl={6} md={6} xs={6} className="text-center mt-1">
-											<HeartFilled
-												onClick={onLikePost(post)}
-												style={{ color: love ? "red" : "black" }}
-											/>
-											<span style={{ color: "#177ddc", marginLeft: 7 }}>
-												{post.Likes.filter((like) => !like.commentId).length}
-												{l <= 1 ? (
-													<span style={{ marginLeft: 2 }}>like</span>
-												) : (
-													<span style={{ marginLeft: 2 }}>likes</span>
-												)}
-											</span>
-										</Col>
-										<Col
-											xl={6}
-											md={6}
-											xs={6}
-											className="text-center mt-1"
-											onClick={onCollapse(post.id)}
-										>
-											<MessageOutlined />
-										</Col>
-										<Col xl={6} md={6} xs={6} className="text-center mt-1">
-											<ShareAltOutlined onClick={onRepost(post)} />
-										</Col>
-										<Col xl={6} md={6} xs={6} className="text-center mt-1">
-											<MoreOutlined
-												className=".flex .justify-end"
-												onClick={onShowEditModal(post.id)}
-											/>
-										</Col>
-									</Row>
-									<Divider style={{ marginTop: 10, marginBottom: 20 }} />
-									<AllComments postId={post.id} isOpened={collapse} />
-								</Card>
-							</Col>
+										</span>
+									</Col>
+									<Col
+										onClick={onCollapse(post.id)}
+										className="app__createPost-wrapper"
+									>
+										<MessageOutlined className="app__createPost-wrapper-icon" />
+										<span>Comment</span>
+									</Col>
+									<Col className="app__createPost-wrapper">
+										<ShareAltOutlined
+											onClick={onRepost(post)}
+											className="app__createPost-wrapper-icon"
+										/>
+										<span>Repost</span>
+									</Col>
+									<Col xl={6} md={6} xs={6} className="app__createPost-wrapper">
+										<MoreOutlined
+											onClick={onShowEditModal(post.id)}
+											className="app__createPost-wrapper-icon"
+										/>
+										<span>More</span>
+									</Col>
+								</Row>
+								<AllComments postId={post.id} isOpened={collapse} />
+							</Card>
 						);
 					})}
 			</Row>

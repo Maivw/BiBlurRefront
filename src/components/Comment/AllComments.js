@@ -8,7 +8,6 @@ import { Collapse } from "react-collapse";
 import CreateAComment from "./CreateAComment";
 import DeleteSingleComment from "./DeleteAComment";
 import EditSingleComment from "./EditSingleComment";
-import "./AllComment.css";
 import _ from "lodash";
 
 const imageUrlDefault =
@@ -36,6 +35,7 @@ export default function AllComments(props) {
 		dispatch(GetComments({ postId }));
 	};
 	const onShowMore = (commentId) => () => {
+		console.log("t", commentId);
 		setVisibleShowmore(commentId);
 	};
 	const closeShowmore = (e) => {
@@ -59,43 +59,48 @@ export default function AllComments(props) {
 							(e) => e.commentId === comment.id
 						);
 						return (
-							<Row key={comment.id}>
-								<Col xl={3} md={3} xs={3}>
-									{comment.User.imageUrl ? (
-										<img
-											src={comment.User.imageUrl}
-											alt={comment.User.username}
-											className="commentAvatar"
-										/>
-									) : (
-										<img
-											src={imageUrlDefault}
-											alt="avatar"
-											className="commentAvatar"
-										/>
-									)}
-								</Col>
-								<Col className="commentContent" xl={19} md={19} xs={19}>
-									<Row>
-										<Col xl={22} md={22} xs={22}>
-											{comment.commentContent}
-										</Col>
-										<Col xl={1} md={1} xs={1} className="commentInputIcon">
-											<HeartFilled
-												onClick={onLikeComment(comment.id, postId, user_Id)}
-												style={{
-													color: isLiked ? "red" : "black",
-												}}
+							<Row key={comment.id} className="comments">
+								<Row className="comment__top">
+									<Col xl={3} md={3} xs={3} className="comment__avatar">
+										{comment.User.imageUrl ? (
+											<img
+												src={comment.User.imageUrl}
+												alt={comment.User.username}
+												className="comment__avatar-image"
 											/>
-										</Col>
-										<Col xl={1} md={1} xs={1} className="commentInputIcon">
-											<div className="popover">
+										) : (
+											<img
+												src={imageUrlDefault}
+												alt="avatar"
+												className="comment__avatar-image"
+											/>
+										)}
+									</Col>
+									<Row className="comment__content" xl={19} md={19} xs={19}>
+										<Col>{comment.commentContent}</Col>
+										<Col
+											style={{
+												display: "flex",
+												justifyContent: "space-around",
+											}}
+										>
+											<Col style={{ marginRight: "1rem" }}>
+												<HeartFilled
+													onClick={onLikeComment(comment.id, postId, user_Id)}
+													style={{
+														color: isLiked ? "red" : "#025f57ec",
+													}}
+													className="app__createPost-wrapper-icon"
+												/>
+											</Col>
+											<Col className="app__popover">
 												<Popover
 													content={
 														<div>
 															<EditSingleComment
 																postId={postId}
 																commentId={comment.id}
+																OnSendClose={closeShowmore}
 															/>
 															<div
 																style={{
@@ -123,28 +128,18 @@ export default function AllComments(props) {
 													visible={visibleShowmore === comment.id}
 													className="popover"
 												></Popover>
-											</div>
-
-											<MoreOutlined
-												style={{
-													display: "flex",
-													justifyContent: "flex-end",
-													marginTop: -10,
-												}}
-												onClick={onShowMore(comment.id)}
-											/>
+												<MoreOutlined
+													onClick={onShowMore(comment.id)}
+													className="app__createPost-wrapper-icon"
+												/>
+											</Col>
 										</Col>
 									</Row>
-								</Col>
+								</Row>
 							</Row>
 						);
 					})}
-				<Row xl={24} md={24} xs={24}>
-					<Col xl={3} md={3} xs={3}></Col>
-					<Col xl={19} md={19} xs={19}>
-						<CreateAComment postId={postId} />
-					</Col>
-				</Row>
+				<CreateAComment postId={postId} />
 			</Collapse>
 		</div>
 	);

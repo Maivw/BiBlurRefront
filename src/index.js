@@ -6,6 +6,7 @@ import "./index.css";
 import App from "./App";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore, persistReducer } from "redux-persist";
+import "antd/dist/antd.css";
 
 export const store = configureStore();
 let persistor = persistStore(store);

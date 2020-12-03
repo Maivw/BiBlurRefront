@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { SendOutlined } from "@ant-design/icons";
 import { Row, Col, Input } from "antd";
 import { MakeAComment, GetComments } from "../../reducers/commentManagement";
-import "./AllComment.css";
 
 export default function CreateAComment({ postId }) {
 	const dispatch = useDispatch();
@@ -21,32 +20,26 @@ export default function CreateAComment({ postId }) {
 		setCommentContent(e.target.value);
 	};
 	return (
-		<div>
-			<Row className="mt-3">
-				<Col
-					xl={19}
-					md={19}
-					sm={19}
-					className="self-center"
-					style={{ position: "relative" }}
-				>
-					<Input
-						onChange={updateInputComment}
-						name="commentContent"
-						value={commentContent}
-						className="createCommentInput"
-					/>
-					<SendOutlined
-						onClick={onSentComment}
-						style={{
-							position: "absolute",
-							top: "35%",
-							right: 10,
-							color: "#15395b",
-						}}
-					/>
-				</Col>
-			</Row>
+		<div className="create-comment__input">
+			<Input
+				onChange={updateInputComment}
+				name="commentContent"
+				value={commentContent}
+				className="comment__input"
+				autoComplete="off"
+				placeholder="Write a comment"
+				style={{
+					padding: "1rem 2rem",
+					border: "1px solid #0e414918",
+					borderRadius: "2rem",
+					margin: "1rem",
+					width: "90%",
+					position: "relative",
+				}}
+			/>
+			<div>
+				<SendOutlined onClick={onSentComment} className="comment__input-icon" />
+			</div>
 		</div>
 	);
 }

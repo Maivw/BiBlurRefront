@@ -13,12 +13,9 @@ function DeleteAPost({ id }) {
 	};
 
 	return (
-		<div>
-			<div type="text" onClick={onDelete}>
-				<DeleteOutlined
-					style={{ color: "#8c8c8c", fontSize: "20px", marginLeft: 10 }}
-				/>
-			</div>
+		<div type="text" onClick={onDelete} className="app__createPost-wrapper">
+			<DeleteOutlined className="app__createPost-wrapper-icon" />
+			<span>Delete </span>
 		</div>
 	);
 }
