@@ -212,7 +212,7 @@ function GetAllPosts(props) {
 								</Row>
 								<Row className="card__body">
 									<Col className="card__body-content">{post.postContent}</Col>
-									<Col>
+									<Col className="card__body-iv">
 										{post.imagePostUrl && (
 											<img
 												src={post.imagePostUrl}

@@ -51,7 +51,9 @@ body {
 }
 .ant-menu.ant-menu-dark, .ant-layout-sider-children, .ant-layout-sider-trigger, .ant-menu-dark .ant-menu-inline.ant-menu-sub{
   background-image: $color-bg;
-  
+}
+.ant-menu.ant-menu-dark {
+  height: 14.4rem !important;
 }
 * {
   font-size: 14px;
@@ -64,8 +66,7 @@ body {
 	margin: 2rem auto;
   width: 70%;
   z-index: 2;
-  
-
+ 
 	& .app__createPost {
     box-shadow: $boxShadow;
     border: 1px solid $color-border;
@@ -197,6 +198,9 @@ body {
       text-align: left;
       padding: 0 0 2rem 3rem;
       color: $color-text;
+    }
+    &-iv {
+      margin: 0 auto !important;
     }
     &-imageVideo {
       @include size(50rem, 70rem);

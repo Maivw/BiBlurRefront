@@ -25,6 +25,10 @@ body {
   background-image: radial-gradient(circle at center center, #474747, #080808) !important;
 }
 
+.ant-menu.ant-menu-dark {
+  height: 14.4rem !important;
+}
+
 * {
   font-size: 14px;
 }
@@ -199,6 +203,10 @@ body {
   text-align: left;
   padding: 0 0 2rem 3rem;
   color: white;
+}
+
+.card__body-iv {
+  margin: 0 auto !important;
 }
 
 .card__body-imageVideo {

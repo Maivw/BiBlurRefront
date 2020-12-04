@@ -258,16 +258,16 @@ function Home() {
 						<Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
 							<Menu.Item key="1">
 								<Link to="/">
-									<img src="https://res.cloudinary.com/maivw/image/upload/v1598292590/05f4a9f5-9714-4ba2-85f5-bc6e550b7b35_200x200_djglwy.png" />
+									<img
+										src="https://res.cloudinary.com/maivw/image/upload/v1598292590/05f4a9f5-9714-4ba2-85f5-bc6e550b7b35_200x200_djglwy.png"
+										style={{ height: "14rem" }}
+									/>
 								</Link>
 							</Menu.Item>
 						</Menu>
 					</Header>
-					<Content style={{ margin: "24px 16px 0", overflow: "initial" }}>
-						<div
-							className="site-layout-background"
-							style={{ padding: 50, textAlign: "center" }}
-						>
+					<Content style={{ marginTop: "20rem" }}>
+						<div>
 							<GetAllPosts />
 						</div>
 					</Content>
