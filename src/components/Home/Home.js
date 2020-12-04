@@ -7,7 +7,7 @@ import {
 	getUserProfile,
 	EditLoggedInUser,
 } from "../../reducers/authentication";
-import { Layout, Menu, Card, Modal, Popover, Row, Col, Input } from "antd";
+import { Layout, Menu, Card, Modal, Row, Col, Input } from "antd";
 import {
 	UserOutlined,
 	DesktopOutlined,
@@ -160,78 +160,91 @@ function Home() {
 					</Card>
 				)}
 			</Modal>
+			<Modal visible={visible} onOk={onShowProfileModal} onCancel={onCancel}>
+				{user && (
+					<Card
+						className="cardEditProfile"
+						hoverable
+						cover={
+							user.imageUrl ? (
+								<img
+									alt="example"
+									src={user.imageUrl}
+									className="cardEditProfile-image"
+								/>
+							) : (
+								<img
+									alt="example"
+									src={imageUrlDefault}
+									className="cardEditProfile-image"
+								/>
+							)
+						}
+					>
+						<div style={{ fontSize: "1.2rem", color: "white" }}>
+							User Name <strong>{user.username}</strong>
+						</div>
+						<div style={{ fontSize: "1.2rem" }}>
+							Email <strong>{user.email}</strong>
+						</div>
+
+						<a
+							style={{ color: "white", fontSize: "1.2rem" }}
+							onClick={onCancel}
+						>
+							Close
+						</a>
+					</Card>
+				)}
+			</Modal>
 			<Layout style={{ minHeight: "100vh" }}>
 				<Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
 					<div className="logo" />
 					<Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
 						<Menu.Item key="2" icon={<DesktopOutlined />}>
-							<Link to="/">Home</Link>
+							<Link style={{ fontSize: "1.2rem" }} to="/">
+								Home
+							</Link>
 						</Menu.Item>
 						<SubMenu key="sub1" icon={<UserOutlined />} title="User">
-							<Menu.Item key="3">Followers</Menu.Item>
-							<Menu.Item key="4">Followings</Menu.Item>
-							<Menu.Item key="5" style={{ position: "relative" }}>
-								<Popover
-									content={
-										user && (
-											<Card
-												hoverable
-												style={{
-													width: "40rem",
-													height: "45rem",
-													color: "black",
-													borderRadius: "2rem",
-												}}
-												cover={
-													user.imageUrl ? (
-														<img
-															alt="example"
-															src={user.imageUrl}
-															style={{
-																width: "30rem",
-																height: "35rem",
-																borderRadius: "2rem",
-																objectFit: "cover",
-																margin: "0 auto",
-															}}
-														/>
-													) : (
-														<img
-															alt="example"
-															src={imageUrlDefault}
-															style={{ width: 50, height: 70 }}
-														/>
-													)
-												}
-											>
-												<div>
-													User Name <strong>{user.username}</strong>
-												</div>
-												<div>
-													Email <strong>{user.email}</strong>
-												</div>
-
-												<a onClick={onCancel}>Close</a>
-											</Card>
-										)
-									}
-									title=""
-									trigger="click"
-									visible={visible}
-									onVisibleChange={onShowProfileModal}
+							<Menu.Item key="3" style={{ color: "white", fontSize: "1.2rem" }}>
+								Followers
+							</Menu.Item>
+							<Menu.Item key="4" style={{ color: "white", fontSize: "1.2rem" }}>
+								Followings
+							</Menu.Item>
+							<Menu.Item
+								key="5"
+								style={{
+									position: "relative",
+									color: "white",
+									fontSize: "1.2rem",
+								}}
+							>
+								<div
+									style={{ color: "white", fontSize: "1.2rem" }}
+									onClick={onShowProfileModal}
 								>
-									<div>About</div>
-								</Popover>
+									About
+								</div>
 							</Menu.Item>
 							<Menu.Item key="6">
-								<div onClick={onShowEditProfileModal(userId)}>Update</div>
+								<div
+									style={{ color: "white", fontSize: "1.2rem" }}
+									onClick={onShowEditProfileModal(userId)}
+								>
+									Update
+								</div>
 							</Menu.Item>
 						</SubMenu>
 						<Menu.Item key="3">
 							{token ? (
 								<Logout />
 							) : (
-								<Link to="/login">
+								<Link
+									to="/login"
+									style={{ color: "white", fontSize: "1.2rem" }}
+								>
 									<LoginOutlined /> Log in
 								</Link>
 							)}

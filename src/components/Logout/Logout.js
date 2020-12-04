@@ -13,7 +13,7 @@ function Logout() {
 		history.push("/login");
 	};
 	return (
-		<div onClick={onLogout}>
+		<div onClick={onLogout} style={{ fontSize: "1.2rem" }}>
 			<LogoutOutlined /> Logout
 		</div>
 	);

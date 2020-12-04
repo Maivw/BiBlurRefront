@@ -43,11 +43,11 @@ body {
 }
 
 .ant-popover-inner {
-	width: 300px;
-  height: 400px;
-  left: 100% !important;
+	max-width: 40rem;
+  max-height: 50rem;
   position: absolute;
   background-image: $color-bg;
+
 }
 .ant-menu.ant-menu-dark, .ant-layout-sider-children, .ant-layout-sider-trigger, .ant-menu-dark .ant-menu-inline.ant-menu-sub{
   background-image: $color-bg;
@@ -147,7 +147,8 @@ body {
   box-shadow: $boxShadow;
 }
 .ant-card-body {
-  border-radius: $borderRadius;
+  border-bottom-left-radius: $borderRadius;
+  border-bottom-right-radius: $borderRadius;
   box-shadow: $boxShadow;
 }
 
@@ -261,7 +262,8 @@ body {
     @include size(10rem, 35rem);
     object-fit: cover;
     object-position: center;
-    border-radius: $borderRadius!important;
+    border-top-left-radius: $borderRadius!important;
+    border-top-right-radius: $borderRadius!important;
     box-shadow: $boxShadow !important;
   }
 }
@@ -398,6 +400,7 @@ body {
   left: 10%;
   top: 50%;
   transform: translate(0%, -10%);
+  cursor: not-allowed;
   z-index: 1;
     &:after {
       content: "";
@@ -406,7 +409,7 @@ body {
       width: 200%;
       top: 0%;
       left: 0%;
-      background-color:#eeeeee;
+      background-color:$color-icon-bg;
       z-index: -1;
       transform: translate(-25%, -25%);
       border-radius: $borderRadius;

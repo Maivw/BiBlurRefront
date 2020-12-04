@@ -15,9 +15,8 @@ body {
 }
 
 .ant-popover-inner {
-  width: 300px;
-  height: 400px;
-  left: 100% !important;
+  max-width: 40rem;
+  max-height: 50rem;
   position: absolute;
   background-image: radial-gradient(circle at center center, #474747, #080808) !important;
 }
@@ -132,7 +131,8 @@ body {
 }
 
 .ant-card-body {
-  border-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
   box-shadow: 0 0 10px 0 #71d5e063;
 }
 
@@ -275,7 +275,8 @@ body {
   height: 35rem;
   object-fit: cover;
   object-position: center;
-  border-radius: 1.5rem !important;
+  border-top-left-radius: 1.5rem !important;
+  border-top-right-radius: 1.5rem !important;
   box-shadow: 0 0 10px 0 #71d5e063 !important;
 }
 
@@ -421,6 +422,7 @@ body {
   left: 10%;
   top: 50%;
   transform: translate(0%, -10%);
+  cursor: not-allowed;
   z-index: 1;
 }
 
@@ -431,7 +433,7 @@ body {
   width: 200%;
   top: 0%;
   left: 0%;
-  background-color: #eeeeee;
+  background-color: #b7f2f89d;
   z-index: -1;
   transform: translate(-25%, -25%);
   border-radius: 1.5rem;

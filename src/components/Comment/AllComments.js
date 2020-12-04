@@ -96,6 +96,17 @@ export default function AllComments(props) {
 												<Popover
 													content={
 														<div>
+															<p
+																onClick={closeShowmore}
+																style={{
+																	marginLeft: 15,
+																	color: "white",
+																	fontSize: "1.2rem",
+																}}
+																className="popover__text"
+															>
+																Close
+															</p>
 															<EditSingleComment
 																postId={postId}
 																commentId={comment.id}
@@ -117,16 +128,6 @@ export default function AllComments(props) {
 																	userLoginId={userLoginId}
 																	userId={comment.userId}
 																/>
-																<p
-																	onClick={closeShowmore}
-																	style={{
-																		marginLeft: 15,
-																		color: "#8c8c8c",
-																	}}
-																	className="popover__text"
-																>
-																	Close
-																</p>
 															</div>
 														</div>
 													}

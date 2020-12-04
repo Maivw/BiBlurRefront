@@ -25,7 +25,7 @@ export default function DeleteSingleComment({
 					<DeleteOutlined className="comment__input-icon-delete" />
 				</div>
 			) : (
-				<p style={{ color: "#112a45", padding: "1rem" }}>
+				<p style={{ color: "white", padding: "1rem", fontSize: "1.2rem" }}>
 					You are not allowed to delete this comment!
 					<EyeInvisibleOutlined className="comment__input-icon-warning" />
 				</p>
