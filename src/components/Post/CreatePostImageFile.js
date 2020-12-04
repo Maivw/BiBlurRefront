@@ -41,36 +41,47 @@ function CreatePostImageFile({ visible, onCancel }) {
 	};
 	const { TextArea } = Input;
 	return (
-		<div>
-			<Modal
-				title="Create a Post"
-				visible={visible}
-				onCancel={onCancel}
-				onOk={onPost}
-			>
-				<Row>
-					<Col>
-						<TextArea
-							onChange={updatePostInput}
-							name="postContent"
-							rows={4}
-							placeholder={`What's is on your mind?`}
-							value={post.postContent}
-						/>
+		<Modal
+			title="Create a Post"
+			visible={visible}
+			onCancel={onCancel}
+			onOk={onPost}
+			className="modal__createPost"
+		>
+			<Row>
+				<Col>
+					<TextArea
+						onChange={updatePostInput}
+						name="postContent"
+						rows={4}
+						placeholder={`What's is on your mind?`}
+						value={post.postContent}
+						style={{
+							padding: "1rem 2rem",
+							border: "1px solid #0e414918",
+							borderRadius: "2rem",
+							margin: "1rem",
+							position: "relative",
+							boxShadow: "0 0 10px  0 Turquoise",
+						}}
+					/>
+					<Input
+						placeholder={"where are you ?"}
+						name="location"
+						value={post.location}
+						onChange={updatePostInput}
+						style={{
+							padding: "1rem 2rem",
+							border: "1px solid #0e414918",
+							borderRadius: "2rem",
+							margin: "1rem",
+							position: "relative",
+							boxShadow: "0 0 10px  0 Turquoise",
+						}}
+					/>
+					<label>
+						<PictureOutlined style={{ color: "white" }} />
 						<Input
-							placeholder={"where are you ?"}
-							name="location"
-							value={post.location}
-							onChange={updatePostInput}
-						/>
-					</Col>
-				</Row>
-				<div className="flex justify-around">
-					<label style={{ fontSize: "20px", marginLeft: "80%" }}>
-						<span className="createPostInputIcon">
-							<PictureOutlined />
-						</span>
-						<input
 							name="imagePostUrl"
 							type="file"
 							style={{ display: "none" }}
@@ -79,9 +90,9 @@ function CreatePostImageFile({ visible, onCancel }) {
 						/>
 					</label>
 					{file && <img src={imageFile} alt="img" style={{ height: 50 }} />}
-				</div>
-			</Modal>
-		</div>
+				</Col>
+			</Row>
+		</Modal>
 	);
 }
 

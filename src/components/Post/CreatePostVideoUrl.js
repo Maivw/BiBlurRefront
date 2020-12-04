@@ -30,38 +30,60 @@ function CreatePostVideoUrl({ visible, onCancel }) {
 
 	const { TextArea } = Input;
 	return (
-		<div>
-			<Modal
-				title="Create a Post"
-				visible={visible}
-				onCancel={onCancel}
-				onOk={onPost}
-			>
-				<Row>
-					<Col>
-						<TextArea
-							onChange={updatePostInput}
-							name="postContent"
-							rows={4}
-							placeholder={`What's is on your mind?`}
-							value={post.postContent}
-						/>
-						<Input
-							placeholder={"where are you ?"}
-							name="location"
-							value={post.location}
-							onChange={updatePostInput}
-						/>
-						<Input
-							placeholder={"video url"}
-							name="videoPostUrl"
-							value={post.videoPostUrl}
-							onChange={updatePostInput}
-						/>
-					</Col>
-				</Row>
-			</Modal>
-		</div>
+		<Modal
+			title="Create a Post"
+			visible={visible}
+			onCancel={onCancel}
+			onOk={onPost}
+		>
+			<Row>
+				<Col>
+					<TextArea
+						onChange={updatePostInput}
+						name="postContent"
+						rows={4}
+						placeholder={`What's is on your mind?`}
+						value={post.postContent}
+						style={{
+							padding: "1rem 2rem",
+							border: "1px solid #0e414918",
+							borderRadius: "2rem",
+							margin: "1rem",
+							position: "relative",
+							boxShadow: "0 0 10px  0 Turquoise",
+						}}
+					/>
+					<Input
+						placeholder={"where are you ?"}
+						name="location"
+						value={post.location}
+						onChange={updatePostInput}
+						style={{
+							padding: "1rem 2rem",
+							border: "1px solid #0e414918",
+							borderRadius: "2rem",
+							margin: "1rem",
+							position: "relative",
+							boxShadow: "0 0 10px  0 Turquoise",
+						}}
+					/>
+					<Input
+						placeholder={"video url"}
+						name="videoPostUrl"
+						value={post.videoPostUrl}
+						onChange={updatePostInput}
+						style={{
+							padding: "1rem 2rem",
+							border: "1px solid #0e414918",
+							borderRadius: "2rem",
+							margin: "1rem",
+							position: "relative",
+							boxShadow: "0 0 10px  0 Turquoise",
+						}}
+					/>
+				</Col>
+			</Row>
+		</Modal>
 	);
 }
 

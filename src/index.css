@@ -4,7 +4,7 @@
 
 html {
   font-size: 62.5%;
-  background-image: adial-gradient(circle at center center, #8de6e9, #0c8288) !important;
+  background-image: radial-gradient(circle at center center, #474747, #080808) !important;
 }
 
 body {
@@ -20,7 +20,7 @@ body {
 }
 
 .ant-menu.ant-menu-dark, .ant-layout-sider-children, .ant-layout-sider-trigger, .ant-menu-dark .ant-menu-inline.ant-menu-sub {
-  background-image: radial-gradient(circle at center center, #8de6e9, #0c8288) !important;
+  background-image: radial-gradient(circle at center center, #474747, #080808) !important;
 }
 
 * {
@@ -35,12 +35,12 @@ body {
 }
 
 .app__container .app__createPost {
-  box-shadow: 0 0 10px 0 #9ad6dd63;
+  box-shadow: 0 0 10px 0 #71d5e063;
   border: 1px solid #0e414918;
   border-radius: 3rem;
-  background-color: white;
+  background-image: radial-gradient(circle at center center, #474747, #080808) !important;
   margin-bottom: 3rem;
-  color: #112a45;
+  color: white;
   border-radius: 1.5rem;
   display: flex;
   justify-content: space-between;
@@ -115,7 +115,7 @@ body {
 }
 
 .ant-layout {
-  background-image: radial-gradient(circle at center center, rgba(103, 230, 230, 0.664), #0d9499) !important;
+  background-image: radial-gradient(circle at 84% 82%, rgba(217, 217, 217, 0.03) 0%, rgba(217, 217, 217, 0.03) 21%, transparent 21%, transparent 100%), radial-gradient(circle at 75% 56%, rgba(3, 3, 3, 0.03) 0%, rgba(3, 3, 3, 0.03) 30%, transparent 30%, transparent 100%), radial-gradient(circle at 74% 53%, rgba(153, 153, 153, 0.03) 0%, rgba(153, 153, 153, 0.03) 95%, transparent 95%, transparent 100%), radial-gradient(circle at 86% 43%, rgba(209, 209, 209, 0.03) 0%, rgba(209, 209, 209, 0.03) 83%, transparent 83%, transparent 100%), radial-gradient(circle at 64% 88%, rgba(192, 192, 192, 0.03) 0%, rgba(192, 192, 192, 0.03) 2%, transparent 2%, transparent 100%), radial-gradient(circle at 73% 77%, rgba(205, 205, 205, 0.03) 0%, rgba(205, 205, 205, 0.03) 18%, transparent 18%, transparent 100%), radial-gradient(circle at 57% 51%, rgba(161, 161, 161, 0.03) 0%, rgba(161, 161, 161, 0.03) 64%, transparent 64%, transparent 100%), radial-gradient(circle at 40% 84%, rgba(115, 115, 115, 0.03) 0%, rgba(115, 115, 115, 0.03) 14%, transparent 14%, transparent 100%), linear-gradient(90deg, black, black) !important;
 }
 
 .ant-card {
@@ -125,12 +125,16 @@ body {
 
 .ant-card-bordered {
   width: 100rem;
-  box-shadow: 0 0 10px 0 #9ad6dd63;
+  box-shadow: 0 0 10px 0 #71d5e063;
 }
 
 .ant-card-body {
   border-radius: 1.5rem;
-  box-shadow: 0 0 10px 0 #9ad6dd63;
+  box-shadow: 0 0 10px 0 #71d5e063;
+}
+
+.card {
+  background-image: radial-gradient(circle at center center, #474747, #080808) !important;
 }
 
 .card__top {
@@ -140,7 +144,7 @@ body {
 }
 
 .card__header {
-  color: #112a45;
+  color: white;
   position: relative;
   display: flex;
   justify-content: space-evenly;
@@ -176,7 +180,7 @@ body {
 
 .card__header-name {
   text-decoration: none;
-  color: #112a45;
+  color: white;
   font-size: 2rem;
 }
 
@@ -186,34 +190,33 @@ body {
   font-weight: 300 !important;
   display: flex !important;
   flex-direction: column !important;
-  box-shadow: 0 0 10px 0 #9ad6dd63;
-  border-radius: 1.5rem;
 }
 
 .card__body-content {
   text-align: left;
   padding: 0 0 2rem 3rem;
-  color: #112a45;
+  color: white;
 }
 
 .card__body-imageVideo {
-  width: 35rem;
-  height: 50rem;
+  width: 50rem;
+  height: 70rem;
   border-radius: 1.5rem;
-  box-shadow: 0 0 10px 0 #9ad6dd63;
+  box-shadow: 0 0 10px 0 #71d5e063;
   margin: 3rem;
   object-position: center !important;
 }
 
 .card__icon-delete {
-  color: #112a45;
+  color: white;
   margin: 2rem 5rem 0 0;
   width: 11rem;
 }
 
 .card__footer {
+  color: white;
   border: 1px solid #0e414918;
-  box-shadow: 0 0 10px 0 #9ad6dd63;
+  box-shadow: 0 0 10px 0 #71d5e063;
   display: flex;
   justify-content: space-around;
   border-radius: 1.5rem;
@@ -222,10 +225,71 @@ body {
   padding: 1rem 1rem 1rem 4rem;
 }
 
+.cardEdit {
+  border: 2px solid #0e414918 !important;
+  box-shadow: 0 0 10px 0 #71d5e063 !important;
+  background-image: radial-gradient(circle at center center, #474747, #080808) !important;
+  width: 90%;
+}
+
+.cardEdit__body {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.cardEdit__body-imageVideo {
+  width: 15rem;
+  height: 25rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 10px 0 #71d5e063;
+  margin: 0 auto;
+  object-position: center !important;
+}
+
+.cardEdit__footer {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.ant-modal-content {
+  border-radius: 2rem !important;
+  border: 1px solid #0e414918 !important;
+  background-image: radial-gradient(circle at center center, #474747, #080808) !important;
+  border: 1px solid #0e414918 !important;
+  margin: 0 auto !important;
+}
+
+.ant-modal-header {
+  border-top-right-radius: 2rem !important;
+  border-top-left-radius: 2rem !important;
+  border-top: 1px solid #0e414918 !important;
+  background-color: #b7f2f89d !important;
+}
+
+.ant-modal-body {
+  border-top-right-radius: 2rem !important;
+  border-top-left-radius: 2rem !important;
+  border-top: 1px solid #0e414918 !important;
+}
+
+.ant-btn {
+  background-color: white !important;
+  border-radius: 2rem !important;
+  color: #025f57ec !important;
+}
+
+.ant-btn.ant-btn-primary {
+  background-color: #b7f2f89d !important;
+  color: white !important;
+  border: 1px solid #0e414918 !important;
+}
+
 .comments {
   border-bottom: 1px solid #0e414918;
   width: 85%;
   margin: 0.5rem auto 0.5rem;
+  color: white;
 }
 
 .comment__top {
@@ -297,7 +361,7 @@ body {
 }
 
 .comment__input-icon-delete {
-  color: #112a45 !important;
+  color: white !important;
   position: relative;
   left: 95%;
   top: 50%;
@@ -319,7 +383,7 @@ body {
 }
 
 .comment__input-icon-warning {
-  color: #112a45 !important;
+  color: white !important;
   position: relative;
   left: 10%;
   top: 50%;
@@ -373,7 +437,7 @@ h1 {
 .container {
   color: white;
   border-radius: 2rem;
-  box-shadow: 0 0 10px 0 #9ad6dd63;
+  box-shadow: 0 0 10px 0 #71d5e063;
   position: relative;
   overflow: hidden;
   width: 60%;
@@ -386,7 +450,7 @@ h1 {
 }
 
 .form-container form {
-  background-color: #1ab3b3;
+  background-color: #222121 !important;
   display: flex;
   flex-direction: column;
   padding: 0 50px;
@@ -403,7 +467,7 @@ h1 {
   margin: 8px 0;
   width: 100%;
   border-radius: 1.5rem;
-  box-shadow: 0 0 10px 0 #9ad6dd63;
+  box-shadow: 0 0 10px 0 #71d5e063;
 }
 
 .form-container {
@@ -430,7 +494,7 @@ button {
   margin-top: 4rem;
   border-radius: 20px;
   border: 1px solid white;
-  background-color: #2d8079b2;
+  background-color: #116b64b2;
   color: white !important;
   font-size: 14px;
   font-weight: bold;
