@@ -362,7 +362,7 @@ body {
 
 .comment__input-icon {
   position: relative;
-  left: 45%;
+  left: 90%;
   top: 0%;
   transform: translate(-200%, -300%);
   z-index: 1;

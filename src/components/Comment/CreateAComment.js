@@ -32,7 +32,7 @@ export default function CreateAComment({ postId }) {
 					padding: "1rem 2rem",
 					border: "1px solid #0e414918",
 					borderRadius: "2rem",
-					margin: "1rem",
+					margin: "2rem 1rem 1rem 4rem",
 					width: "90%",
 					position: "relative",
 				}}
