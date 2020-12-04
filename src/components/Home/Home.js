@@ -7,13 +7,9 @@ import {
 	getUserProfile,
 	EditLoggedInUser,
 } from "../../reducers/authentication";
-import { Layout, Menu, Card, Modal, Popover, Row, Col } from "antd";
+import { Layout, Menu, Card, Modal, Popover, Row, Col, Input } from "antd";
 import {
-	MenuUnfoldOutlined,
-	MenuFoldOutlined,
 	UserOutlined,
-	VideoCameraOutlined,
-	UploadOutlined,
 	DesktopOutlined,
 	LoginOutlined,
 	PictureOutlined,
@@ -89,7 +85,7 @@ function Home() {
 				onOk={onEditUser}
 				className="editUserModal"
 			>
-				<p className="updateTitle">Update your profile</p>
+				<p className="cardEditProfile-header">Update your profile</p>
 				{user && (
 					<Card
 						hoverable
@@ -99,47 +95,67 @@ function Home() {
 								<img
 									alt="example"
 									src={user.imageUrl}
-									style={{ width: "100%", height: 500, objectFit: "cover" }}
+									className="cardEditProfile-image"
 								/>
 							) : (
 								<img
 									alt="example"
 									src={imageUrlDefault}
-									style={{ width: "100%", height: 500, objectFit: "cover" }}
+									className="cardEditProfile-image"
 								/>
 							)
 						}
 					>
 						<>
-							<input
+							<Input
 								type="text"
 								placeholder="Your username"
 								value={userEdited.username}
 								name="username"
 								onChange={updateUserEditInput}
 								className="editInput "
+								autoComplete="off"
+								style={{
+									padding: "1rem 2rem",
+									border: "1px solid #0e414918",
+									borderRadius: "2rem",
+									margin: "1rem",
+									position: "relative",
+									fontSize: "1.2rem",
+								}}
 							/>
-							<div className="flex justify-around">
+							<Row className="flex justify-around">
 								<label>
-									<div style={{ padding: 10 }}>
-										<span>Click the Icon to update new image profile</span>
+									<Col>
+										<span style={{ padding: "1rem" }}>
+											Click the Icon to update new image profile
+										</span>
 										<span className="updateProfileIcon">
 											<PictureOutlined />
 										</span>
-									</div>
+									</Col>
 
-									<input
+									<Input
 										name="imageUrl"
 										type="file"
 										style={{ display: "none" }}
 										onChange={handleChangeUpload}
 										value={userEdited.imageUrl}
+										autoComplete="off"
 									/>
 								</label>
 								{file && (
-									<img src={imageFile} alt="img" style={{ height: 50 }} />
+									<img
+										src={imageFile}
+										alt="img"
+										style={{
+											border: "1px solid #0e414918",
+											borderRadius: "2rem",
+											maxWidth: "35rem",
+										}}
+									/>
 								)}
-							</div>
+							</Row>
 						</>
 					</Card>
 				)}
@@ -154,18 +170,37 @@ function Home() {
 						<SubMenu key="sub1" icon={<UserOutlined />} title="User">
 							<Menu.Item key="3">Followers</Menu.Item>
 							<Menu.Item key="4">Followings</Menu.Item>
-							<Menu.Item key="5">
+							<Menu.Item key="5" style={{ position: "relative" }}>
 								<Popover
 									content={
 										user && (
 											<Card
 												hoverable
-												style={{ width: 240 }}
+												style={{
+													width: "40rem",
+													height: "45rem",
+													color: "black",
+													borderRadius: "2rem",
+												}}
 												cover={
 													user.imageUrl ? (
-														<img alt="example" src={user.imageUrl} />
+														<img
+															alt="example"
+															src={user.imageUrl}
+															style={{
+																width: "30rem",
+																height: "35rem",
+																borderRadius: "2rem",
+																objectFit: "cover",
+																margin: "0 auto",
+															}}
+														/>
 													) : (
-														<img alt="example" src={imageUrlDefault} />
+														<img
+															alt="example"
+															src={imageUrlDefault}
+															style={{ width: 50, height: 70 }}
+														/>
 													)
 												}
 											>
@@ -210,10 +245,7 @@ function Home() {
 						<Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
 							<Menu.Item key="1">
 								<Link to="/">
-									<img
-										src="https://res.cloudinary.com/maivw/image/upload/v1598292590/05f4a9f5-9714-4ba2-85f5-bc6e550b7b35_200x200_djglwy.png"
-										style={{ width: 130 }}
-									/>
+									<img src="https://res.cloudinary.com/maivw/image/upload/v1598292590/05f4a9f5-9714-4ba2-85f5-bc6e550b7b35_200x200_djglwy.png" />
 								</Link>
 							</Menu.Item>
 						</Menu>

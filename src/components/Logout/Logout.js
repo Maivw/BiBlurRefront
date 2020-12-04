@@ -13,8 +13,8 @@ function Logout() {
 		history.push("/login");
 	};
 	return (
-		<div>
-			<LogoutOutlined onClick={onLogout} /> Logout
+		<div onClick={onLogout}>
+			<LogoutOutlined /> Logout
 		</div>
 	);
 }

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login, signup } from "../../reducers/authentication";
 
-import { Form, Input, Row, Col } from "antd";
+import { Input, Row, Col } from "antd";
 const layout = {
 	labelCol: { span: 8 },
 	wrapperCol: { span: 16 },
@@ -68,9 +68,9 @@ function Login(props) {
 	}
 
 	return (
-		<div className="forms">
-			<div className="container" id="container">
-				<div className="form-container sign-up-container">
+		<Row className="forms">
+			<Row className="container" id="container">
+				<Col className="form-container sign-up-container">
 					<form>
 						<h1>Create Account</h1>
 						<span>by using your email for registration</span>
@@ -111,7 +111,7 @@ function Login(props) {
 							Register
 						</button>
 					</form>
-				</div>
+				</Col>
 				<div className="form-container sign-in-container">
 					<form
 						{...layout}
@@ -161,8 +161,8 @@ function Login(props) {
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+			</Row>
+		</Row>
 	);
 }
 

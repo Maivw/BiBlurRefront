@@ -15,8 +15,11 @@ body {
 }
 
 .ant-popover-inner {
-  width: 900px;
-  height: 700px;
+  width: 300px;
+  height: 400px;
+  left: 100% !important;
+  position: absolute;
+  background-image: radial-gradient(circle at center center, #474747, #080808) !important;
 }
 
 .ant-menu.ant-menu-dark, .ant-layout-sider-children, .ant-layout-sider-trigger, .ant-menu-dark .ant-menu-inline.ant-menu-sub {
@@ -252,6 +255,30 @@ body {
   flex-direction: column;
 }
 
+.cardEditProfile {
+  background-image: radial-gradient(circle at center center, #474747, #080808) !important;
+  width: 40rem !important;
+}
+
+.cardEditProfile-header {
+  color: white;
+  font-size: 1.2rem !important;
+}
+
+.cardEditProfile.ant-card-bordered {
+  background-image: radial-gradient(circle at center center, #474747, #080808) !important;
+  color: white;
+}
+
+.cardEditProfile-image {
+  width: 10rem;
+  height: 35rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 1.5rem !important;
+  box-shadow: 0 0 10px 0 #71d5e063 !important;
+}
+
 .ant-modal-content {
   border-radius: 2rem !important;
   border: 1px solid #0e414918 !important;
@@ -283,6 +310,12 @@ body {
   background-color: #b7f2f89d !important;
   color: white !important;
   border: 1px solid #0e414918 !important;
+}
+
+.ant-modal-title {
+  color: white !important;
+  font-weight: 300 !important;
+  font-size: 1.2rem !important;
 }
 
 .comments {

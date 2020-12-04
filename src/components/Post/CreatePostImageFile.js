@@ -63,6 +63,7 @@ function CreatePostImageFile({ visible, onCancel }) {
 							margin: "1rem",
 							position: "relative",
 							boxShadow: "0 0 10px  0 Turquoise",
+							fontSize: "1.2rem",
 						}}
 					/>
 					<Input
@@ -77,6 +78,7 @@ function CreatePostImageFile({ visible, onCancel }) {
 							margin: "1rem",
 							position: "relative",
 							boxShadow: "0 0 10px  0 Turquoise",
+							fontSize: "1.2rem",
 						}}
 					/>
 					<label>

@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import moment from "moment";
 import { editCurrentPost, getAPost } from "../../reducers/postManagement";
 import { Row, Col, Card, Modal, Input } from "antd";
-import "./EditAPost.css";
 
 function EditAPost({ visible, onCancel, id }) {
 	const post = useSelector((state) => state.postManagement.currentPost);
