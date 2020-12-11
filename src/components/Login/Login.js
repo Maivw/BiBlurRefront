@@ -5,8 +5,8 @@ import { login, signup } from "../../reducers/authentication";
 
 import { Input, Row, Col } from "antd";
 const layout = {
-	labelCol: { span: 8 },
-	wrapperCol: { span: 16 },
+	labelcol: { span: 8 },
+	wrappercol: { span: 16 },
 };
 
 function Login(props) {
@@ -116,7 +116,7 @@ function Login(props) {
 					<form
 						{...layout}
 						name="basic"
-						initialValues={{ remember: true }}
+						initialvalues={{ remember: true }}
 						onFinish={onFinish}
 						onFinishFailed={onFinishFailed}
 					>

@@ -19,7 +19,7 @@ const { Meta } = Card;
 const imageUrlDefault =
 	"http://sarangglobaltours.com/wp-content/uploads/2014/02/team.png";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Sider } = Layout;
 const { SubMenu } = Menu;
 function Home() {
 	const token = useSelector((state) => state.authentication.token);

@@ -16,9 +16,11 @@ body {
 
 .ant-popover-inner {
   max-width: 40rem;
+  min-height: 22rem;
   max-height: 50rem;
   position: absolute;
   background-image: radial-gradient(circle at center center, #474747, #080808) !important;
+  border: 5px solid red !important;
 }
 
 .ant-menu.ant-menu-dark, .ant-layout-sider-children, .ant-layout-sider-trigger, .ant-menu-dark .ant-menu-inline.ant-menu-sub {
@@ -160,7 +162,6 @@ body {
 
 .card__header-delete {
   text-align: right;
-  color: red;
 }
 
 .card__header-user {
@@ -341,7 +342,8 @@ body {
 }
 
 .comment__content {
-  width: 50rem;
+  max-width: 50rem;
+  min-width: 40rem;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
@@ -382,6 +384,7 @@ body {
 }
 
 .comment__input-icon-second {
+  border: 2px solid green;
   position: relative;
   left: 95%;
   top: 50%;

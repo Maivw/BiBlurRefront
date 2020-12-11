@@ -5,25 +5,24 @@ import { Input } from "antd";
 import { EditAComment } from "../../reducers/commentManagement";
 
 function EditSingleComment(props) {
-	const { postId, commentId, userId } = props;
+	const { postId, commentId, userId, userLoginId } = props;
 	const dispatch = useDispatch();
 
 	const [commentContent, setCommentContent] = useState("");
 	const [visible, setVisible] = useState(false);
-	const userLogin = useSelector((state) => state.authentication.userLoggedIn);
 
 	const updateInputComment = (e) => {
 		setCommentContent(e.target.value);
 	};
 	const onEditComment = (e) => {
 		dispatch(
-			EditAComment({ postId, commentId, commentContent, userId: userLogin.id })
+			EditAComment({ postId, commentId, commentContent, userId: userLoginId })
 		);
 		props.OnSendClose(!visible);
 	};
 	return (
 		<div className="create-comment__input">
-			{userId === userLogin.id ? (
+			{userId === userLoginId ? (
 				<>
 					<Input
 						onChange={updateInputComment}

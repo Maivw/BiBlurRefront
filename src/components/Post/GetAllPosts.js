@@ -204,7 +204,7 @@ function GetAllPosts(props) {
 											</p>
 										</Col>
 									</Col>
-									{post.userId === userLogin.id ? (
+									{post.userId === user_Id ? (
 										<Col className="card__icon-delete">
 											<DeleteAPost id={post.id} />
 										</Col>
@@ -270,7 +270,7 @@ function GetAllPosts(props) {
 									postId={post.id}
 									isOpened={collapse}
 									postUserId={post.userId}
-									userLoginId={userLogin.id}
+									userLoginId={user_Id}
 								/>
 							</Card>
 						);

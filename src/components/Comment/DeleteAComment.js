@@ -1,15 +1,13 @@
-import React, { useSelector } from "react";
+import React from "react";
 import { DeleteAComment } from "../../reducers/commentManagement";
 import { useDispatch } from "react-redux";
 import { DeleteOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
 
-export default function DeleteSingleComment({
-	postId,
-	commentId,
-	postUserId,
-	userLoginId,
-	userId,
-}) {
+export default function DeleteSingleComment(props) {
+	const { postId, commentId, postUserId, userLoginId } = props;
+	console.log("a", postUserId);
+	console.log("a1", userLoginId);
+	console.log("a3", commentId);
 	const dispatch = useDispatch();
 
 	const onDeleteComment = (e) => {
@@ -20,7 +18,7 @@ export default function DeleteSingleComment({
 
 	return (
 		<>
-			{postUserId === userLoginId || userLoginId === userId ? (
+			{postUserId === userLoginId ? (
 				<div onClick={onDeleteComment}>
 					<DeleteOutlined className="comment__input-icon-delete" />
 				</div>

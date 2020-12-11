@@ -43,10 +43,13 @@ body {
 }
 
 .ant-popover-inner {
-	max-width: 40rem;
+  max-width: 40rem;
+  min-height: 22rem;
   max-height: 50rem;
   position: absolute;
   background-image: $color-bg;
+  border: 5px solid red !important;
+ 
 
 }
 .ant-menu.ant-menu-dark, .ant-layout-sider-children, .ant-layout-sider-trigger, .ant-menu-dark .ant-menu-inline.ant-menu-sub{
@@ -166,7 +169,7 @@ body {
     width: 40%;
     &-delete {
       text-align: right;
-      color: red;
+     
     }
     &-user {
       @include flex (flex, space-between);
@@ -321,7 +324,9 @@ body {
     position: relative;
   }
   &__content {
-  width: 50rem;
+  
+  max-width: 50rem;
+  min-width: 40rem;
    display: flex;
    justify-content: space-between;
    margin: 0 auto;
@@ -360,6 +365,7 @@ body {
 }
 
 .comment__input-icon-second {
+  border: 2px solid green;
   position: relative;
   left: 95%;
   top: 50%;
@@ -584,6 +590,7 @@ button.ghost {
 }
 //popover
 .ant-popover-content {
+  
   position: relative !important;
 }
 .ant-popover-inner {
@@ -594,6 +601,7 @@ button.ghost {
   top: 40% !important;
   transform: translateY( 40%);
   padding: 1rem 3rem 1rem 1rem;
+  
   
 }
 

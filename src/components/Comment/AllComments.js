@@ -24,7 +24,7 @@ export default function AllComments(props) {
 	const posts = useSelector((state) => state.postManagement.Posts);
 	const { postId, isOpened, postUserId, userLoginId } = props;
 	const [visibleShowmore, setVisibleShowmore] = useState(false);
-	const userLogin = useSelector((state) => state.authentication.userLoggedIn);
+
 	useEffect(() => {
 		if (postId === isOpened) {
 			onShowComments();
@@ -112,6 +112,7 @@ export default function AllComments(props) {
 																commentId={comment.id}
 																OnSendClose={closeShowmore}
 																userId={comment.userId}
+																userLoginId={userLoginId}
 															/>
 															<div
 																style={{
